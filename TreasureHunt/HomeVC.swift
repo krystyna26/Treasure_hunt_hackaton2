@@ -41,6 +41,15 @@ class HomeVC: UIViewController {
             tableView.reloadData()
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "huntDetailsSegue" {
+            let hunt = sender as! Hunt
+            let nav = segue.destination as! UINavigationController
+            let destination = nav.topViewController as! HuntDetails
+            destination.thisHunt = hunt
+        }
+        
+    }
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
@@ -75,6 +84,11 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         context.delete(huntToDelete)
         AppDelegate.saveContext()
         tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hunt = treasureHunts[indexPath.row]
+        performSegue(withIdentifier: "huntDetailsSegue", sender: hunt)
     }
     
     
