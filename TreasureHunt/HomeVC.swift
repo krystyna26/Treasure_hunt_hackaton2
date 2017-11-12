@@ -34,8 +34,13 @@ class HomeVC: UIViewController {
             print("Error: \(error)")
         }
     }
-    
-    
+    @IBAction func unwindSegueToHome(_ segue:UIStoryboardSegue) {
+        if let source = segue.source as? AddTreasuresVC {
+            let hunt = source.thisHunt!
+            treasureHunts.append(hunt)
+            tableView.reloadData()
+        }
+    }
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
@@ -49,6 +54,18 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.nameLabel.text = hunt.name
         cell.descLabel.text = hunt.desc
+        
+        //Get number of treasures for this hunt
+        var numTreasures:Int = 0
+        let treasuresReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Treasure")
+        treasuresReq.predicate = NSPredicate(format: "hunt == %@", hunt)
+        do {
+            let treasures = try context.fetch(treasuresReq)
+            numTreasures = treasures.count
+        } catch {
+            print("Error: \(error)")
+        }
+        cell.numTreasuresLabel.text = String(numTreasures)
         
         return cell
     }

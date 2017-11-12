@@ -33,15 +33,20 @@ class NewHuntVC: UIViewController {
         }
     }
     
+    @IBAction func textFieldChanged(_ sender: UITextField) {
+        sender.backgroundColor = .clear
+    }
+    
     @IBAction func nextButtonPressed(_ sender:UIBarButtonItem) {
         if (huntNameField.text != nil && huntDescField != nil) {
             let name = huntNameField.text
             let desc = huntDescField.text
+            let warningColor = UIColor(red:1.00, green:0.00, blue:0.00, alpha:0.2)
             if name == "" {
-                huntNameField.backgroundColor = .red
+                huntNameField.backgroundColor = warningColor
             }
             if desc == "" {
-                huntDescField.backgroundColor = .red
+                huntDescField.backgroundColor = warningColor
             }
             if name != "" && desc != "" {
                 huntName = name

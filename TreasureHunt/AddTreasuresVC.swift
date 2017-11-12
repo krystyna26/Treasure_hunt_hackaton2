@@ -14,6 +14,7 @@ import CoreData
 class AddTreasuresVC: UIViewController {
     var huntName:String?
     var thisHunt:Hunt?
+    var zoom = Float()
     let locationManager = CLLocationManager()
     
     let appDel = UIApplication.shared.delegate as! AppDelegate
@@ -22,10 +23,15 @@ class AddTreasuresVC: UIViewController {
     @IBOutlet weak var mapSection: GMSMapView!
     @IBOutlet weak var huntNameLabel: UILabel!
     @IBOutlet weak var treasureNameField: UITextField!
+    @IBOutlet weak var zoomStepper: UIStepper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         huntNameLabel.text = huntName
+        treasureNameField.delegate = self
+        zoom = 18.0
+        zoomStepper.value = Double(zoom)
+        zoomStepper.stepValue = 0.5
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager.requestWhenInUseAuthorization()
@@ -47,29 +53,51 @@ class AddTreasuresVC: UIViewController {
                 treasure.hunt = thisHunt
                 appDel.saveContext()
                 treasureNameField.text = ""
+            } else {
+                let warningColor = UIColor(red:1.00, green:0.00, blue:0.00, alpha:0.2)
+                treasureNameField.backgroundColor = warningColor
             }
         }
     }
+    @IBAction func treasureNameChanged(_ sender: UITextField) {
+        sender.backgroundColor = .clear
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
+    }
+    
+    @IBAction func zoomStepperPressed(_ sender: UIStepper) {
+        zoom = Float(sender.value)
+        print("Zoom: \(zoom)")
+        showMap()
+    }
+    
+    func showMap() {
+        let locCoordinate:CLLocationCoordinate2D? = locationManager.location?.coordinate
+        if let coordinate = locCoordinate {
+            let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: zoom)
+            
+            mapSection.camera = camera //Puts the map centered around your location
+            
+            
+            //            print("Latitude: \(coordinate.latitude), Longitude: \(coordinate.longitude)")
+        }
     }
 }
 
 extension AddTreasuresVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locCoordinate:CLLocationCoordinate2D? = manager.location?.coordinate
-        
-        if let coordinate = locCoordinate {
-            let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: 18.0)
-            
-            mapSection.camera = camera //Puts the map centered around your location
-            
-            print("Latitude: \(coordinate.latitude), Longitude: \(coordinate.longitude)")
-            
-        }
-        
-        
+        showMap()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        mapSection = GMSMapView()
+        let errorView = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 100)))
+        errorView.text = "Having issues finding your location! Please try again later."
+        errorView.textColor = .red
+        view.addSubview(errorView)
     }
     
 }

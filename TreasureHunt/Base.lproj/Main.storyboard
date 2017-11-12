@@ -167,6 +167,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldChanged:" destination="cyH-Vv-Yf4" eventType="editingChanged" id="s1Y-6z-wWg"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a short description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ye-wN-OVz">
                                 <rect key="frame" x="16" y="211" width="343" height="24"/>
@@ -179,6 +182,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldChanged:" destination="cyH-Vv-Yf4" eventType="editingChanged" id="Hlk-m4-le4"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -202,7 +208,11 @@
                         <viewLayoutGuide key="safeArea" id="UhD-kd-UTL"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Ae-uF-1xG">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6pj-s9-Env"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6pj-s9-Env">
+                            <connections>
+                                <segue destination="DWe-hX-qY8" kind="unwind" unwindAction="unwindSegueToHome:" id="qdF-da-v4r"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="nDi-m4-lfI">
                             <connections>
                                 <action selector="nextButtonPressed:" destination="cyH-Vv-Yf4" id="aoG-03-cR2"/>
@@ -216,6 +226,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="at5-dL-QdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DWe-hX-qY8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="437.60000000000002" y="146.17691154422789"/>
         </scene>
@@ -227,39 +238,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxH-62-CTs" userLabel="Hunt Section">
-                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFJ-Td-F1r">
-                                        <rect key="frame" x="8" y="8" width="359" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="fFJ-Td-F1r" secondAttribute="trailing" constant="8" id="Sv3-1j-1Ay"/>
-                                    <constraint firstAttribute="bottom" secondItem="fFJ-Td-F1r" secondAttribute="bottom" constant="8" id="Zrn-3N-gmR"/>
-                                    <constraint firstItem="fFJ-Td-F1r" firstAttribute="leading" secondItem="zxH-62-CTs" secondAttribute="leading" constant="8" id="cyz-Gl-SOr"/>
-                                    <constraint firstItem="fFJ-Td-F1r" firstAttribute="top" secondItem="zxH-62-CTs" secondAttribute="top" constant="8" id="tpc-zF-ucQ"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jME-RO-ywd" userLabel="Map Section" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="104" width="375" height="459"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dN-WT-XfR" userLabel="Add Treasure Section">
-                                <rect key="frame" x="0.0" y="563" width="375" height="104"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="181"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Treasure name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUg-Yb-JeH">
-                                        <rect key="frame" x="16" y="8" width="343" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Red Box" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUg-Yb-JeH">
+                                        <rect key="frame" x="16" y="85" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="treasureNameChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="Fv5-dS-GLb"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VM-p9-Qi5">
-                                        <rect key="frame" x="16" y="54" width="343" height="34"/>
+                                        <rect key="frame" x="16" y="131" width="343" height="34"/>
                                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Add Treasure at Current Location">
@@ -269,46 +261,87 @@
                                             <action selector="addTreasureButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LsG-1A-HoE"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Your Treasure:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7db-EM-8Mj">
+                                        <rect key="frame" x="16" y="56" width="351" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFJ-Td-F1r">
+                                        <rect key="frame" x="16" y="16" width="343" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="4VM-p9-Qi5" firstAttribute="leading" secondItem="5dN-WT-XfR" secondAttribute="leading" constant="16" id="0fS-bh-fXd"/>
+                                    <constraint firstItem="7db-EM-8Mj" firstAttribute="leading" secondItem="5dN-WT-XfR" secondAttribute="leading" constant="16" id="AYv-wT-jO1"/>
                                     <constraint firstItem="eUg-Yb-JeH" firstAttribute="leading" secondItem="5dN-WT-XfR" secondAttribute="leading" constant="16" id="Ep4-9K-xXU"/>
-                                    <constraint firstItem="eUg-Yb-JeH" firstAttribute="top" secondItem="5dN-WT-XfR" secondAttribute="top" constant="8" id="FS1-9k-rFq"/>
+                                    <constraint firstItem="7db-EM-8Mj" firstAttribute="top" secondItem="fFJ-Td-F1r" secondAttribute="bottom" constant="16" id="GO7-4s-IIN"/>
                                     <constraint firstAttribute="trailing" secondItem="eUg-Yb-JeH" secondAttribute="trailing" constant="16" id="Ifb-em-rfK"/>
+                                    <constraint firstItem="fFJ-Td-F1r" firstAttribute="top" secondItem="5dN-WT-XfR" secondAttribute="top" constant="16" id="JrV-hH-VYu"/>
+                                    <constraint firstItem="eUg-Yb-JeH" firstAttribute="top" secondItem="7db-EM-8Mj" secondAttribute="bottom" constant="8" id="MG4-RP-QqU"/>
                                     <constraint firstAttribute="bottom" secondItem="4VM-p9-Qi5" secondAttribute="bottom" constant="16" id="Pke-FN-xI7"/>
                                     <constraint firstItem="4VM-p9-Qi5" firstAttribute="top" secondItem="eUg-Yb-JeH" secondAttribute="bottom" constant="16" id="Q2N-cf-bKK"/>
+                                    <constraint firstItem="fFJ-Td-F1r" firstAttribute="leading" secondItem="5dN-WT-XfR" secondAttribute="leading" constant="16" id="hNS-F3-TKv"/>
+                                    <constraint firstAttribute="trailing" secondItem="fFJ-Td-F1r" secondAttribute="trailing" constant="16" id="vTs-1U-uz6"/>
                                     <constraint firstAttribute="trailing" secondItem="4VM-p9-Qi5" secondAttribute="trailing" constant="16" id="xXS-vG-oRC"/>
+                                    <constraint firstAttribute="trailing" secondItem="7db-EM-8Mj" secondAttribute="trailing" constant="8" id="ynv-w7-aec"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jME-RO-ywd" userLabel="Map Section" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="245" width="375" height="377"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="kbT-ZW-wOa">
+                                <rect key="frame" x="273" y="630" width="94" height="29"/>
+                                <connections>
+                                    <action selector="zoomStepperPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="2iU-gU-ju2"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-7i-NWu">
+                                <rect key="frame" x="213" y="634" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zxH-62-CTs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0nX-Uz-1iJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kbT-ZW-wOa" secondAttribute="bottom" constant="8" id="3jm-Af-nF5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5dN-WT-XfR" secondAttribute="trailing" id="5Os-Qb-UJD"/>
+                            <constraint firstItem="MuT-7i-NWu" firstAttribute="centerY" secondItem="kbT-ZW-wOa" secondAttribute="centerY" id="7M7-Qk-P2I"/>
                             <constraint firstItem="5dN-WT-XfR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7yB-mj-gtS"/>
-                            <constraint firstItem="5dN-WT-XfR" firstAttribute="top" secondItem="jME-RO-ywd" secondAttribute="bottom" id="FZ0-Ex-Xgh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5dN-WT-XfR" secondAttribute="bottom" id="aKn-RD-7jy"/>
+                            <constraint firstItem="jME-RO-ywd" firstAttribute="top" secondItem="5dN-WT-XfR" secondAttribute="bottom" id="8gR-V8-C9b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kbT-ZW-wOa" secondAttribute="trailing" constant="8" id="Adu-c3-eJP"/>
+                            <constraint firstItem="kbT-ZW-wOa" firstAttribute="leading" secondItem="MuT-7i-NWu" secondAttribute="trailing" constant="8" id="QzA-q2-n8T"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jME-RO-ywd" secondAttribute="trailing" id="gVR-oX-foo"/>
-                            <constraint firstItem="zxH-62-CTs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hv7-B8-eDc"/>
+                            <constraint firstItem="kbT-ZW-wOa" firstAttribute="top" secondItem="jME-RO-ywd" secondAttribute="bottom" constant="8" id="ncI-d5-xpV"/>
                             <constraint firstItem="jME-RO-ywd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="p5O-fZ-nUT"/>
-                            <constraint firstItem="jME-RO-ywd" firstAttribute="top" secondItem="zxH-62-CTs" secondAttribute="bottom" id="s2k-XS-Ybn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zxH-62-CTs" secondAttribute="trailing" id="wgY-6X-Yhv"/>
+                            <constraint firstItem="5dN-WT-XfR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xuf-rN-UmY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="D8C-9j-iB8">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="fLg-CT-olg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="fLg-CT-olg">
+                            <connections>
+                                <segue destination="Pfu-pL-xHk" kind="unwind" unwindAction="unwindSegueToHome:" id="IgE-bw-O1J"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="huntNameLabel" destination="fFJ-Td-F1r" id="OeS-C2-xk5"/>
                         <outlet property="mapSection" destination="jME-RO-ywd" id="xpM-7d-gYt"/>
                         <outlet property="treasureNameField" destination="eUg-Yb-JeH" id="0q0-0m-hVn"/>
+                        <outlet property="zoomStepper" destination="kbT-ZW-wOa" id="rYS-sc-cjh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Pfu-pL-xHk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1186" y="146"/>
+            <point key="canvasLocation" x="1184.8" y="145.27736131934034"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n21-wj-6zO">
