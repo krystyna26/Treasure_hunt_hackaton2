@@ -31,7 +31,6 @@ class AddTreasuresVC: UIViewController {
         treasureNameField.delegate = self
         zoom = 18.0
         zoomStepper.value = Double(zoom)
-        zoomStepper.stepValue = 0.5
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager.requestWhenInUseAuthorization()
@@ -80,9 +79,7 @@ class AddTreasuresVC: UIViewController {
             let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: zoom)
             
             mapSection.camera = camera //Puts the map centered around your location
-            
-            
-            //            print("Latitude: \(coordinate.latitude), Longitude: \(coordinate.longitude)")
+            mapSection.isMyLocationEnabled = true
         }
     }
 }
