@@ -18,9 +18,9 @@
 		651385611FB62AB8004D71B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6513855F1FB62AB8004D71B9 /* LaunchScreen.storyboard */; };
 		6513856C1FB62AB8004D71B9 /* TreasureHuntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6513856B1FB62AB8004D71B9 /* TreasureHuntTests.swift */; };
 		651385771FB62AB8004D71B9 /* TreasureHuntUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651385761FB62AB8004D71B9 /* TreasureHuntUITests.swift */; };
-		65D73E4E1FB7D4DA008B056F /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D73E4D1FB7D4DA008B056F /* Play.swift */; };
-		65D73E501FB7D4F2008B056F /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D73E4F1FB7D4F2008B056F /* ScoresView.swift */; };
-		65D73E521FB7D4FF008B056F /* HuntDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D73E511FB7D4FF008B056F /* HuntDetails.swift */; };
+		659519411FBA4D0D00E2E640 /* HuntDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659519401FBA4D0D00E2E640 /* HuntDetails.swift */; };
+		659519431FBA4D2E00E2E640 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659519421FBA4D2E00E2E640 /* Play.swift */; };
+		659519451FBA4D5200E2E640 /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659519441FBA4D5200E2E640 /* ScoresView.swift */; };
 		96024C49DCEFD71E0AD231D7 /* libPods-TreasureHunt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C724BB840C1135D106066AA /* libPods-TreasureHunt.a */; };
 /* End PBXBuildFile section */
 
@@ -60,9 +60,9 @@
 		651385721FB62AB8004D71B9 /* TreasureHuntUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreasureHuntUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		651385761FB62AB8004D71B9 /* TreasureHuntUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreasureHuntUITests.swift; sourceTree = "<group>"; };
 		651385781FB62AB8004D71B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65D73E4D1FB7D4DA008B056F /* Play.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Play.swift; path = ../../../../../../../Downloads/Play.swift; sourceTree = "<group>"; };
-		65D73E4F1FB7D4F2008B056F /* ScoresView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoresView.swift; path = ../../../../../../../Downloads/ScoresView.swift; sourceTree = "<group>"; };
-		65D73E511FB7D4FF008B056F /* HuntDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HuntDetails.swift; path = ../../../../../../../Downloads/HuntDetails.swift; sourceTree = "<group>"; };
+		659519401FBA4D0D00E2E640 /* HuntDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuntDetails.swift; sourceTree = "<group>"; };
+		659519421FBA4D2E00E2E640 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
+		659519441FBA4D5200E2E640 /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 		8B7C645BD1D4B535AE62E79E /* Pods-TreasureHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.release.xcconfig"; sourceTree = "<group>"; };
 		D12E2B6F42CA1674ECA20F46 /* Pods-TreasureHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,12 +121,12 @@
 				651385531FB62AB8004D71B9 /* AppDelegate.swift */,
 				651385551FB62AB8004D71B9 /* AddTreasuresVC.swift */,
 				651385571FB62AB8004D71B9 /* Main.storyboard */,
+				659519401FBA4D0D00E2E640 /* HuntDetails.swift */,
+				659519421FBA4D2E00E2E640 /* Play.swift */,
+				659519441FBA4D5200E2E640 /* ScoresView.swift */,
 				650844491FB679B00015B664 /* HuntCell.swift */,
 				650844471FB66CDC0015B664 /* NewHuntVC.swift */,
 				650844451FB63FE80015B664 /* HomeVC.swift */,
-				65D73E511FB7D4FF008B056F /* HuntDetails.swift */,
-				65D73E4F1FB7D4F2008B056F /* ScoresView.swift */,
-				65D73E4D1FB7D4DA008B056F /* Play.swift */,
 				6513855D1FB62AB8004D71B9 /* Assets.xcassets */,
 				6513855F1FB62AB8004D71B9 /* LaunchScreen.storyboard */,
 				651385621FB62AB8004D71B9 /* Info.plist */,
@@ -362,15 +362,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				659519411FBA4D0D00E2E640 /* HuntDetails.swift in Sources */,
 				6508444A1FB679B00015B664 /* HuntCell.swift in Sources */,
 				651385561FB62AB8004D71B9 /* AddTreasuresVC.swift in Sources */,
+				659519431FBA4D2E00E2E640 /* Play.swift in Sources */,
+				659519451FBA4D5200E2E640 /* ScoresView.swift in Sources */,
 				650844461FB63FE80015B664 /* HomeVC.swift in Sources */,
 				650844481FB66CDC0015B664 /* NewHuntVC.swift in Sources */,
-				65D73E4E1FB7D4DA008B056F /* Play.swift in Sources */,
-				65D73E501FB7D4F2008B056F /* ScoresView.swift in Sources */,
 				651385541FB62AB8004D71B9 /* AppDelegate.swift in Sources */,
 				6513855C1FB62AB8004D71B9 /* TreasureHunt.xcdatamodeld in Sources */,
-				65D73E521FB7D4FF008B056F /* HuntDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
